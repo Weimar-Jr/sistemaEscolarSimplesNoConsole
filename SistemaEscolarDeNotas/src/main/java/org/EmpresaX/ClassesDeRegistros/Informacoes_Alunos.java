@@ -1,6 +1,8 @@
 package org.EmpresaX.ClassesDeRegistros;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -46,6 +48,10 @@ public class Informacoes_Alunos {
         this.turma = turma;
     }
 
+    @OneToMany (mappedBy="aluno", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<NotasDisciplina> notas = new ArrayList<>();
+
+    public Informacoes_Alunos() {}
     public Informacoes_Alunos(String Nome, Turma Turma)
     {
         this.nome = Nome;

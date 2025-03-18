@@ -3,7 +3,6 @@ package org.EmpresaX.ClassesUsuarios;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import org.EmpresaX.ClassesDeRegistros.Informacoes_Alunos;
-import org.EmpresaX.ClassesDeRegistros.Turma;
 
 @Entity
 public class Alunos extends Informacoes_Alunos {
@@ -15,12 +14,26 @@ public class Alunos extends Informacoes_Alunos {
    private String permissao;
 
 
-    public Alunos(String nome, Turma turma, String matricula, String usuario, String senha)
+   public String getUsuario()
+   {
+       return usuario;
+   }
+   public void setUsuario(String novoUsuario)
+   {
+       usuario = novoUsuario;
+   }
+
+   public void setSenha( String novaSenha)
+   {
+       senha = novaSenha;
+   }
+
+    public Alunos(Informacoes_Alunos aluno , String usuario, String senha)
     {
-        super(nome,turma);
+        super(aluno.getNome(), aluno.getTurma());
         this.usuario = usuario;
         this.senha = senha;
-        this.setMatricula( matricula);
+        this.matricula = aluno.getMatricula();
         this.permissao = "ver notas";
     }
 }

@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Professor extends Administradores {
+public class Professores extends Administradores {
    @Column(nullable = false)
     private String materia;
 
@@ -29,7 +29,7 @@ public class Professor extends Administradores {
         this.turmas = turmas;
     }
 
-    public Professor(String Nome, String Cpf, String Usuario, String Senha, String Materia)
+    public Professores(String Nome, String Cpf, String Usuario, String Senha, String Materia)
     {
         super(Nome,Cpf,Usuario,Senha);
         this.materia = Materia;

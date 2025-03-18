@@ -1,7 +1,7 @@
 package org.EmpresaX.ClassesDeRegistros;
 
 import jakarta.persistence.*;
-import org.EmpresaX.ClassesUsuarios.Professor;
+import org.EmpresaX.ClassesUsuarios.Professores;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +16,7 @@ public class Turma {
     private String nomeTurma;
 
     @ManyToMany(mappedBy = "turmas")
-    private Set<Professor> professores =  new HashSet<>();
+    private Set<Professores> professores =  new HashSet<>();
 
     @OneToMany(mappedBy = "turma", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Informacoes_Alunos> alunos = new HashSet<>();;
@@ -26,13 +26,14 @@ public class Turma {
         return nomeTurma;
     }
 
-    public Set<Professor> getProfessores() {
+    public Set<Professores> getProfessores() {
         return professores;
     }
 
     public Set<Informacoes_Alunos> getAlunos() {
         return alunos;
     }
+
 
     public Turma(String nome) {
         this.nomeTurma = nome;
